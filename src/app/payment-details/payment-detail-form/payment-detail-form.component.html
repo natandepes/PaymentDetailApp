@@ -1,0 +1,76 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input type="hidden" name="paymentDetailId" [value]="formData.paymentDetailId">
+    <div class="mb-3">
+        <label for="">Card Owner Name</label>
+        <input 
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Name on Card"
+            #cardOwnerName="ngModel"
+            autocomplete="off"
+            name="cardOwnerName"
+            required
+            minlength="4"
+            maxlength="100"
+            [(ngModel)]="formData.cardOwnerName"
+        >
+    </div>
+    <div class="mb-3">
+        <label for="">Card Number</label>
+        <input 
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="16 digit card number"
+            #cardNumber="ngModel"
+            autocomplete="off"
+            name="cardNumber"
+            required
+            minlength="16"
+            maxlength="16"
+            [(ngModel)]="formData.cardNumber"
+        >
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="">Security Code</label>
+            <input 
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="CVV"
+                #securityCode="ngModel"
+                autocomplete="off"
+                name="securityCode"
+                required
+                minlength="3"
+                maxlength="3"
+                [(ngModel)]="formData.securityCode"
+            >
+        </div>
+        <div class="mb-3 col-6">
+            <label for="">Valid Through</label>
+            <input 
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="MM/YY"
+                #expirationDate="ngModel"
+                autocomplete="off"
+                name="expirationDate"
+                required
+                minlength="5"
+                maxlength="5"
+                [(ngModel)]="formData.expirationDate"
+            >
+        </div>
+    </div>
+    <div class="d-grid">
+        <button type="submit" class="btn btn-lg btn-success">
+            Submit
+        </button>
+    </div>
+    <div class="d-grid" style="padding-top: 7px;">
+        <button type="button" class="btn btn-lg btn-primary" (click)="resetForm(form)">
+            Clear
+        </button>
+    </div>
+</form>
